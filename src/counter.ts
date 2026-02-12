@@ -1,7 +1,8 @@
 export function setupCounter(element: HTMLButtonElement, randomCountry: string, correctCountry: string) {
-  let counter = 0
+  let _counter = 0
+  console.log(_counter); // lit to avoid dumb error
   const setCounter = (count: number) => {
-    counter = count
+    _counter = count
     element.textContent = randomCountry
   }
   const correctCheck = (randomCountry: string, correctCountry: string) => {

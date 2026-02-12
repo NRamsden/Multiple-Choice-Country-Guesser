@@ -11,11 +11,12 @@ async function displayCountry(countryId: string, containerId = 'country-containe
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgText, 'image/svg+xml');
 
-  const target = doc.getElementById(countryId) as SVGGElement; // doc.querySelector(`#${countryId}`) as SVGGElement;
+  const target = doc.getElementById(countryId) as SVGGElement | null; // doc.querySelector(`#${countryId}`) as SVGGElement;
+  if (!target) return;
 
   if (target) {
     const newSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const bbox = target.getBBox();
+    // const bbox = target.getBBox();
     newSvg.setAttribute('viewBox', '0 0 800 971'); // match your original
     newSvg.setAttribute('width', '100%');
     newSvg.setAttribute('length', 'auto');
